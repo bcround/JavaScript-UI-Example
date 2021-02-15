@@ -125,7 +125,9 @@
       const carousel = ($container, images) => {
         render($container, images);
 
-        $container.style.width = '350px';
+        $carouselSlides.firstElementChild.onload = () => {
+          $container.style.width = `${$carouselSlides.firstElementChild.clientWidth}px`;
+        };
         $container.style.opacity = 1;
 
         $carouselSlides.style.setProperty('--currentSlide', count);
